@@ -5,7 +5,7 @@ let logCount = async function() {
     const text = await utils.readLine('Enter text ');
     const stopWords = new Set(await utils.readStopWords());
     const wordCount = count(text, stopWords);
-    console.log(`Number of words: ${wordCount.words}, unique: ${wordCount.uniqueWords}`);
+    console.log(`Number of words: ${wordCount.words}, unique: ${wordCount.uniqueWords}; average word length: ${wordCount.averageLength} characters`);
 }
 
 logCount();

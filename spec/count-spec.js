@@ -24,4 +24,9 @@ describe('Word count', () => {
         expect(result.words).toBe(3);
         expect(result.uniqueWords).toBe(3);
     });
+
+    it('should calculate the average length of a word', () => {
+        let result = wordCount.count("Mary had a little lamb", new Set(['a']));
+        expect(result.averageLength).toBe(4.25);
+    });
 });
