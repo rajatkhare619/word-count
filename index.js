@@ -1,18 +1,24 @@
 const utils = require('./utils');
 
-async function count() {
+getData = async function() {
     const text = await utils.readLine('Enter text ');
-    const regEx = /([a-zA-Z])+/g;
     const stopWords = new Set(await utils.readStopWords());
+  count(text, stopWords);
+}
+
+module.exports.count = function(text, stopWords) {
+    const regEx = /([a-zA-Z])+/g;
     let match = text.match(regEx);
     let length = 0;
+    let unique = 0;
     if (match) {
         match = match.filter(word => !stopWords.has(word));
         length = match.length;
+        unique = new Set(match).size;
     }
-    console.log(`Number of words: ${length}`);
-
+    // return `Number of words: ${length}, unique: ${unique}`;
+    return {words: length, uniqueWords: unique};
 }
-count();
+//count();
 
 
