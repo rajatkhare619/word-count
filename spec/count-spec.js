@@ -18,4 +18,10 @@ describe('Word count', () => {
         expect(result.words).toBe(0);
         expect(result.uniqueWords).toBe(0);
     });
+
+    it('should count hyphenated words as one word', () => {
+        let result = wordCount.count("Humpty-Dumpty sat on", new Set(['a']));
+        expect(result.words).toBe(3);
+        expect(result.uniqueWords).toBe(3);
+    });
 });
