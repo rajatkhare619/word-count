@@ -17,7 +17,7 @@ const readLine = (question) => new Promise((resolve) => {
   });
 });
 
-const splitBufferByLines = (buffer) => buffer.toString().split('\n').filter(Boolean);
+const splitBufferByLines = (buffer) => buffer.toString().split('\n').filter(Boolean).map(word => word.replace('\r', ''));
 
 const readFilePromise = (filename) => new Promise((resolve, reject) => readFile(filename, (error, data) => {
   if (error) {
